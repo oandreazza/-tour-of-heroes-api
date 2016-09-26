@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -17,8 +16,8 @@ $app->group(['prefix' => 'api'], function($app){
     	return $app->version();
 	});
 
-	$app->get('foo', function () {
-    	return response()->json('Hello World');
-	});
+	$app->get('heroes',['as' => 'heroes.index', 'uses' => 'App\Http\Controllers\HeroesController@index']);
+
+	$app->get('heroes/{id}',['as' => 'heroes.edit', 'uses' => 'App\Http\Controllers\HeroesController@edit']);
 
 });
