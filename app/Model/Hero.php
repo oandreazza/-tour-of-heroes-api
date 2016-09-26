@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App\Model;
 
 class Hero implements \JsonSerializable{

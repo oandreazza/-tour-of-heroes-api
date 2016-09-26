@@ -27,7 +27,7 @@ class HeroesController extends Controller{
 
 
     public function index(){
-        return response()->json(array('data' => $this->heroes))->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        return response()->json(array('data' => $this->heroes));
     }
 
 

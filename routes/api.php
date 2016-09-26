@@ -10,14 +10,9 @@
 |
 */
 
-$app->group(['prefix' => 'api'], function($app){
 
-	$app->get('/', function () use ($app) {
-    	return $app->version();
-	});
 
-	$app->get('heroes',['as' => 'heroes.index', 'uses' => 'App\Http\Controllers\HeroesController@index']);
+$app->get('heroes',['as' => 'heroes.index', 'uses' => 'HeroesController@index']);
 
-	$app->get('heroes/{id}',['as' => 'heroes.edit', 'uses' => 'App\Http\Controllers\HeroesController@edit']);
+$app->get('heroes/{id}',['as' => 'heroes.edit', 'uses' => 'HeroesController@edit']);
 
-});
