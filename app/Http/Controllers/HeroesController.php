@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 
 use App\Model\Hero;
+use Illuminate\Http\Request;
 
 
 class HeroesController extends Controller{
@@ -41,6 +42,11 @@ class HeroesController extends Controller{
         
         return response()->json(array('data' => $hero))->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 
+    }
+
+    public function save(Request $request){
+        $name = $request->json()->get('name');
+        Hero::create(["name" => $name]);
     }
 
 }
