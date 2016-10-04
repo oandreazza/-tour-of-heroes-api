@@ -9,44 +9,35 @@ use Illuminate\Http\Request;
 class HeroesController extends Controller{
 
 
-    private $heroes;
-   
     public function __construct(){
-        $this->setHeroes();
+
     }
-
-
-    private function setHeroes(){
-        /** $this->heroes = [new Hero('1','Mauricio'),
-            new Hero('2','Don Martin'),
-            new Hero('3','Marzteck Turkishw'),
-            new Hero('4','Ultrazon Maritzen'),
-            new Hero('5','Ultramegazord Alterez')
-        ];*/
-
-        $this->heroes = Hero::all();
-    }
-
-
 
     public function index(){
-        return response()->json(array('data' => $this->heroes));
-        //return $this->heroes;
+        $heroes = Hero::all();
+        return response()->json(array('data' => $heroes));
     }
 
 
     public function edit($id){
-
         $hero = Hero::find($id);
-
-        
-        return response()->json(array('data' => $hero))->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        return response()->json(array('data' => $hero));
 
     }
 
     public function save(Request $request){
         $name = $request->json()->get('name');
         Hero::create(["name" => $name]);
+    }
+
+    public function update(Request $request){
+        $id = $request->json()->get('id');
+        $name = $request->json()->get('name');
+
+        $hero = Hero::findOrFail($id);
+        $hero->name = $name;
+        $hero->save();
+
     }
 
 }
