@@ -11,8 +11,5 @@
 */
 
 
-
 $app->get('heroes',['as' => 'heroes.index', 'uses' => 'HeroesController@index']);
-
 $app->get('heroes/{id}',['as' => 'heroes.edit', 'uses' => 'HeroesController@edit']);
-

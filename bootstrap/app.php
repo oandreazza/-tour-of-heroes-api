@@ -24,7 +24,6 @@ $app = new Laravel\Lumen\Application(
 );
 
 $app->withFacades();
-
 $app->withEloquent();
 
 /*
@@ -93,7 +92,7 @@ $app->singleton(
 |
 */
 
-$app->group(['middleware'=> 'cors', 'prefix' => 'api','namespace' => 'App\Http\Controllers'], function ($app) {
+$app->group(['namespace' => 'App\Http\Controllers', 'prefix' => 'api', 'middleware' => 'cors'], function ($app) {
     require __DIR__.'/../routes/api.php';
 });
 
