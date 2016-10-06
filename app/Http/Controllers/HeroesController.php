@@ -27,13 +27,13 @@ class HeroesController extends Controller{
     }
 
     public function save(Request $request){
-        $name = $request->json()->get('name');
+        $name = $request->get('name');
         Hero::create(["name" => $name]);
     }
 
     public function update(Request $request){
-        $id = $request->json()->get('id');
-        $name = $request->json()->get('name');
+        $id = $request->get('id');
+        $name = $request->get('name');
 
         $hero = Hero::findOrFail($id);
         $hero->name = $name;

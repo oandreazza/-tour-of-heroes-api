@@ -64,6 +64,7 @@ $app->singleton(
 
  $app->routeMiddleware([
      'cors' => \App\Http\Middleware\Cors::class,
+     'api' => \App\Http\Middleware\Api::class
  ]);
 
 /*
@@ -92,7 +93,7 @@ $app->singleton(
 |
 */
 
-$app->group(['namespace' => 'App\Http\Controllers', 'prefix' => 'api', 'middleware' => 'cors'], function ($app) {
+$app->group(['namespace' => 'App\Http\Controllers', 'prefix' => 'api', 'middleware' => ['cors','api']], function ($app) {
     require __DIR__.'/../routes/api.php';
 });
 
