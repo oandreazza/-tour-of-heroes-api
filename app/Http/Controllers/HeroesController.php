@@ -13,6 +13,7 @@ class HeroesController extends Controller{
 
     }
 
+
     public function index(){
         $heroes = Hero::all();
         return response()->json(array('data' => $heroes));

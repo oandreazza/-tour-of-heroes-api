@@ -1,0 +1,1 @@
+docker run -d -p 80:80 -v /Users/mauricio/Development/labs/tour-of-heroes-api:/var/www/api -w /var/www/api mauricioweb/laravel-env php -S 0.0.0.0:80 -t public
