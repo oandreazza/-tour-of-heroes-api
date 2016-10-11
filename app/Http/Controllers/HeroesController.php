@@ -28,7 +28,9 @@ class HeroesController extends Controller{
 
     public function save(Request $request){
         $name = $request->get('name');
-        Hero::create(["name" => $name]);
+        $hero = Hero::create(["name" => $name]);
+
+        return response()->json(array('data' => $hero));
     }
 
     public function update(Request $request){
@@ -39,6 +41,12 @@ class HeroesController extends Controller{
         $hero->name = $name;
         $hero->save();
 
+        return response()->json(array('data' => $hero));
+
+    }
+
+    public function delete($id){
+        Hero::destroy($id);
     }
 
 }

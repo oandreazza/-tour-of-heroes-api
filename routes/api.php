@@ -15,3 +15,5 @@ $app->get('heroes',['as' => 'heroes.index', 'uses' => 'HeroesController@index'])
 $app->get('heroes/{id}',['as' => 'heroes.edit', 'uses' => 'HeroesController@edit']);
 $app->post('heroes/save',['as' => 'heroes.save', 'uses' => 'HeroesController@save']);
 $app->post('heroes/update',['as' => 'heroes.update', 'uses' => 'HeroesController@update']);
+$app->options('heroes/{id}',['as' => 'heroes.delete', 'uses' => 'HeroesController@delete']);
+$app->delete('heroes/{id}',['as' => 'heroes.delete', 'uses' => 'HeroesController@delete']);
