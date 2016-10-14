@@ -16,7 +16,6 @@ class HeroesController extends Controller{
 
     public function index(Request $request){
         $name = $request->get('name');
-
         $heroes = Hero::where('name', 'LIKE', "%$name%")->get();
         return response()->json(array('data' => $heroes));
     }
