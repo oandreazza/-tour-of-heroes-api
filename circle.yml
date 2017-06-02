@@ -3,9 +3,13 @@ machine:
     - docker
 
 dependencies:
-  pre:
+  override:
     - sudo pip install docker-compose
     - docker build --rm=false -t $DOCKER_HUB_ID/tour-heroes-api:latest .
+
+teste:
+  override:
+    - docker images
 
 deployment:
   hub:
