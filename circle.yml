@@ -4,10 +4,9 @@ machine:
 
 dependencies:
   override:
-    - sudo pip install docker-compose
     - docker build --rm=false -t $DOCKER_HUB_ID/tour-heroes-api:latest .
 
-teste:
+test:
   override:
     - docker images
 
