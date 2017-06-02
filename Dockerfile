@@ -2,9 +2,11 @@ FROM mauricioweb/laravel-env
 
 ENV HOME /var/www/api
 
+WORKDIR $HOME
+
 COPY . $HOME
 
-WORKDIR $HOME
+RUN composer install
 
 EXPOSE 80
 
